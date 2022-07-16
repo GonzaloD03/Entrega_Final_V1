@@ -1,0 +1,40 @@
+{% extends "homepage/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+    <h1>En este apartado puedes buscar coches</h1>
+  
+
+    <h3>¿Que buscas?</h3>
+
+    <form action="/homepage/buscar/" method="GET">
+
+        <input type="number" name="modelo" id="modelo">
+
+        <input type="submit" value="Buscar">
+
+
+
+
+    </form>
+
+    
+
+    {% if coches %}
+
+    <p>Estamos buscando el: {{modelo}}</p>
+
+    <ul>
+	{% for curso in cursos %}
+		<li> {{coche.nombre}} </li>
+		<li> {{coche.modelo}} </li>
+	{% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+{% endblock %}
